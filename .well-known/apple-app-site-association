@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "S3H85KJ8J8.com.pedroiglesias.luckymeiga"
+        ],
+        "components": [
+          {
+            "/": "/regalo*"
+          },
+          {
+            "/": "/ruleta*"
+          }
+        ]
+      }
+    ]
+  }
+}
