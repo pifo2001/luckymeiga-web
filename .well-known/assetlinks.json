@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pedroiglesias.luckymeiga",
+      "sha256_cert_fingerprints": ["8E:37:70:44:B2:28:52:15:E1:66:30:07:D7:49:F7:D7:7D:77:03:F8:9C:D0:BD:F0:C9:F2:43:3F:F7:DA:43:F7"]
+    }
+  }
+]
