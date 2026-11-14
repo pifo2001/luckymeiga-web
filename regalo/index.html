@@ -49,7 +49,7 @@ if(de){$('de').textContent='Un regalo para ti, desde su huevo de castaño';$('ti
 // Felicitación (m = ocasión): título de la ocasión, a quién va y, si lo hay, el mensaje personal. La app lo enseña en un pergamino.
 var T=['¡Feliz cumpleaños!','¡Feliz santo!','¡Feliz aniversario!','¡Enhorabuena!','¡Ánimo!','¡Hoy es tu día!'];
 if(/^[0-5]$/.test(m||'')){var tt=T[+m]+(para?' '+para:'');$('titulo').textContent=tt;document.title=tt+' · Lucky Meiga';
-$('de').textContent=de?de+' se ha acordado de ti':'Alguien se ha acordado de ti';
+$('de').textContent=(m==='4'?'La Meiga y el huevo de castaño mágico te mandan su fuerza':'La Meiga y el huevo de castaño mágico te felicitan')+(de?' · De parte de '+de:'');
 if(texto){var q=document.createElement('p');q.style.cssText='font-style:italic;font-size:22px;color:#f2d58a;max-width:520px;margin:6px auto';q.textContent='«'+texto+'»';$('titulo').after(q)}
 $('abrir').textContent='Abrir mi felicitación en la app';$('huevo').src='/img/huevo-lazo.png';$('huevo').alt='Huevo de castaño con lazo de oro';
 $('abrir').href='luckymeiga://regalo?'+p.toString()}})();
