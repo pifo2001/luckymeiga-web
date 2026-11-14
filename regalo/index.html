@@ -2,7 +2,7 @@
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Te han mandado suerte · Lucky Meiga</title><meta name="description" content="Alguien ha frotado su huevo por ti. Recoge su suerte en Lucky Meiga.">
 <meta property="og:title" content="Te han mandado suerte · Lucky Meiga"><meta property="og:description" content="Alguien ha frotado su huevo por ti. Recoge su suerte en Lucky Meiga."><meta property="og:type" content="website">
-<meta property="og:url" content="https://luckymeiga.com/regalo/"><meta property="og:image" content="https://luckymeiga.com/img/og.png">
+<meta property="og:url" content="https://luckymeiga.com/regalo/"><meta property="og:image" content="https://luckymeiga.com/img/og-felicita.jpg">
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#120a26">
 <link rel="icon" href="/img/icono.png"><link rel="apple-touch-icon" href="/img/icono.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,12 +36,20 @@ footer{max-width:960px;margin:0 auto;padding:30px 20px 50px;color:var(--suave);f
 <header><a class="marca" href="/" aria-label="Lucky Meiga"><img src="/img/logo-oro.png" alt="Lucky Meiga" width="640" height="302" style="display:block;width:150px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.55))"></a><nav><a href="/privacidad/">Privacidad</a><a href="mailto:info@getvisionclub.app">Contacto</a></nav></header>
 
 <main class="centro"><p class="sub" id="de">Alguien te manda suerte desde su huevo</p><h1 id="titulo">Te han mandado suerte</h1>
-<img src="/img/huevo-oro.png" alt="Huevo de oro" style="width:260px;filter:drop-shadow(0 0 60px rgba(245,197,66,.45))">
+<img id="huevo" src="/img/huevo-oro.png" alt="Huevo de oro" style="width:260px;filter:drop-shadow(0 0 60px rgba(245,197,66,.45))">
 <p>Recógela en la app y úsala cuando dudes: una pregunta a la Meiga, la ruleta o tus números.</p>
 <div id="descargas"><a class="boton" id="abrir" href="luckymeiga://regalo">Recoger la suerte</a> <a class="boton sec" href="/app/">Descargar la app</a></div></main><footer>Lucky Meiga · Entretenimiento basado en el azar: no predice nada ni sustituye a ningún consejo profesional. Gratis y sin registro.
 <br>© 2026 VisionClub Team · <a href="/privacidad/">Privacidad</a> · <a href="mailto:info@getvisionclub.app">info@getvisionclub.app</a></footer></body></html><script src="/tiendas.js"></script><script src="/abrir.js" defer></script>
 <script>
-(function(){var p=new URLSearchParams(location.search),de=(p.get('de')||'').replace(/[\r\n]+/g,' ').trim().slice(0,24);
+(function(){var p=new URLSearchParams(location.search),lim=function(v,n){return (v||'').replace(/[\r\n]+/g,' ').trim().slice(0,n)},de=lim(p.get('de'),24),para=lim(p.get('para'),24),texto=lim(p.get('t'),120),m=p.get('m');
+var $=function(i){return document.getElementById(i)};
 // Con nombre: «Pedro te manda suerte» (la suerte viene de una persona, no de «alguien»).
-if(de){document.getElementById('de').textContent='Un regalo para ti, desde su huevo de castaño';document.getElementById('titulo').textContent=de+' te manda suerte';document.title=de+' te manda suerte · Lucky Meiga';document.getElementById('abrir').href='luckymeiga://regalo?de='+encodeURIComponent(de)}})();
+if(de){$('de').textContent='Un regalo para ti, desde su huevo de castaño';$('titulo').textContent=de+' te manda suerte';document.title=de+' te manda suerte · Lucky Meiga';$('abrir').href='luckymeiga://regalo?de='+encodeURIComponent(de)}
+// Felicitación (m = ocasión): título de la ocasión, a quién va y, si lo hay, el mensaje personal. La app lo enseña en un pergamino.
+var T=['¡Feliz cumpleaños!','¡Feliz santo!','¡Feliz aniversario!','¡Enhorabuena!','¡Ánimo!','¡Hoy es tu día!'];
+if(/^[0-5]$/.test(m||'')){var tt=T[+m]+(para?' '+para:'');$('titulo').textContent=tt;document.title=tt+' · Lucky Meiga';
+$('de').textContent=de?de+' se ha acordado de ti':'Alguien se ha acordado de ti';
+if(texto){var q=document.createElement('p');q.style.cssText='font-style:italic;font-size:22px;color:#f2d58a;max-width:520px;margin:6px auto';q.textContent='«'+texto+'»';$('titulo').after(q)}
+$('abrir').textContent='Recoger la suerte';$('huevo').src='/img/huevo-lazo.png';$('huevo').alt='Huevo de castaño con lazo de oro';
+$('abrir').href='luckymeiga://regalo?'+p.toString()}})();
 </script>
